@@ -1,4 +1,4 @@
-package tutorial11.command;
+package tutorial11.command.traditional;
 
 public class CloseSwitchCommand implements ICommand {
 	private ISwitchable switchable;
