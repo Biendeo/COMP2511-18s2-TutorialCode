@@ -17,6 +17,17 @@ public class ExpressionStringBuilder implements IExpressionVisitor<String> {
 		return sb.toString();
 	}
 
+	@Override
+	public String visit(Subtraction s) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("(");
+		sb.append(s.getLeft().accept(this));
+		sb.append(" - ");
+		sb.append(s.getRight().accept(this));
+		sb.append(")");
+		return sb.toString();
+	}
+
 	public static void main(String[] args) {
 		Addition x = new Addition(new Addition(new Literal(5.0), new Literal(2.0)), new Literal(3.0));
 		ExpressionStringBuilder esb = new ExpressionStringBuilder();
